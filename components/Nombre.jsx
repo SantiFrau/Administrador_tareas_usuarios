@@ -1,17 +1,14 @@
 "use client"
-import { useEffect, useState } from 'react';
-
+import { useContext, useEffect, useState } from 'react';
+import { Contexto } from './context';
 export default function Nombre() {
-  const [usuario, setUsuario] = useState('');
+  
+  const {name} = useContext(Contexto)
 
-  useEffect(() => {
-    const nombreGuardado = localStorage.getItem('name');
-    setUsuario(nombreGuardado || ''); 
-  }, []);
-
+ 
   return (
-    <h3 className='font-bold text-xl'>
-      {usuario}
+    <h3 className='p-2 font-bold text-xl'>
+      {name}
     </h3>
   );
 }
